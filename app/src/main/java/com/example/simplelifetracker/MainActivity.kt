@@ -38,7 +38,7 @@ class MainActivity : AppCompatActivity() {
         val player3Plus: Button = findViewById(R.id.player3plus)
         val player4Plus: Button = findViewById(R.id.player4plus)
 
-        // Life tracker textviews
+        // Life tracker textview
         val player1LifeTextView: TextView = findViewById(R.id.player1life)
         val player2LifeTextView: TextView = findViewById(R.id.player2life)
         val player3LifeTextView: TextView = findViewById(R.id.player3life)
@@ -46,23 +46,23 @@ class MainActivity : AppCompatActivity() {
 
         // Set life totals
         var player1Life = 40
-        player1LifeTextView.text = player1Life.toString()
+        player1LifeTextView.text = "$player1Life"
         var player2Life = 40
-        player2LifeTextView.text = player1Life.toString()
+        player2LifeTextView.text = "$player2Life"
         var player3Life = 40
-        player3LifeTextView.text = player1Life.toString()
+        player3LifeTextView.text = "$player3Life"
         var player4Life = 40
-        player4LifeTextView.text = player1Life.toString()
+        player4LifeTextView.text = "$player4Life"
 
-        resetButton.setOnClickListener() {
+        resetButton.setOnClickListener {
             player1Life = 40
-            player1LifeTextView.text = player1Life.toString()
+            player1LifeTextView.text = "$player1Life"
             player2Life = 40
-            player2LifeTextView.text = player2Life.toString()
+            player2LifeTextView.text = "$player2Life"
             player3Life = 40
-            player3LifeTextView.text = player3Life.toString()
+            player3LifeTextView.text = "$player3Life"
             player4Life = 40
-            player4LifeTextView.text = player4Life.toString()
+            player4LifeTextView.text = "$player4Life"
         }
 
         // Subtract life button listeners
@@ -73,7 +73,7 @@ class MainActivity : AppCompatActivity() {
                 player1LifeTextView.text = "R.I.P"
             }
             else {
-                player1LifeTextView.text = player1Life.toString()
+                player1LifeTextView.text = "$player1Life"
             }
         }
         player2Minus.setOnClickListener {
@@ -83,7 +83,7 @@ class MainActivity : AppCompatActivity() {
                 player2LifeTextView.text = "R.I.P"
             }
             else {
-                player2LifeTextView.text = player2Life.toString()
+                player2LifeTextView.text = "$player2Life"
             }
         }
         player3Minus.setOnClickListener {
@@ -93,7 +93,7 @@ class MainActivity : AppCompatActivity() {
                 player3LifeTextView.text = "R.I.P"
             }
             else {
-                player3LifeTextView.text = player3Life.toString()
+                player3LifeTextView.text = "$player3Life"
             }
         }
         player4Minus.setOnClickListener {
@@ -103,26 +103,26 @@ class MainActivity : AppCompatActivity() {
                 player4LifeTextView.text = "R.I.P"
             }
             else {
-                player4LifeTextView.text = player4Life.toString()
+                player4LifeTextView.text = "$player4Life"
             }
         }
 
         // Add life button listeners
         player1Plus.setOnClickListener {
             player1Life++
-            player1LifeTextView.text = player1Life.toString()
+            player1LifeTextView.text = "$player1Life"
         }
         player2Plus.setOnClickListener {
             player2Life++
-            player2LifeTextView.text = player2Life.toString()
+            player2LifeTextView.text = "$player2Life"
         }
         player3Plus.setOnClickListener {
             player3Life++
-            player3LifeTextView.text = player3Life.toString()
+            player3LifeTextView.text = "$player3Life"
         }
         player4Plus.setOnClickListener {
             player4Life++
-            player4LifeTextView.text = player4Life.toString()
+            player4LifeTextView.text = "$player4Life"
         }
     }
 }
