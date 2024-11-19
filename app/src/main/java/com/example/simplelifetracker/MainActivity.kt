@@ -101,6 +101,7 @@ class MainActivity : AppCompatActivity() {
             player3LifeTextView.text = "$player3Life"
             player4Life = 40
             player4LifeTextView.text = "$player4Life"
+            winningPlayer.text = ""
         }
 
         // Subtract life button listeners
