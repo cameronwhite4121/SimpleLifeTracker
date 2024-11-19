@@ -22,8 +22,9 @@ class MainActivity : AppCompatActivity() {
     }
     private fun gameStart() {
 
-        // Initialize buttons
+        // Initialize buttons/textviews
 
+        val winningPlayer: TextView = findViewById(R.id.winningPlayer)
         val resetButton: Button = findViewById(R.id.resetButton)
 
         // Subtract life buttons
@@ -38,7 +39,7 @@ class MainActivity : AppCompatActivity() {
         val player3Plus: Button = findViewById(R.id.player3plus)
         val player4Plus: Button = findViewById(R.id.player4plus)
 
-        // Life tracker textview
+        // Life tracker textviews
         val player1LifeTextView: TextView = findViewById(R.id.player1life)
         val player2LifeTextView: TextView = findViewById(R.id.player2life)
         val player3LifeTextView: TextView = findViewById(R.id.player3life)
@@ -53,6 +54,43 @@ class MainActivity : AppCompatActivity() {
         player3LifeTextView.text = "$player3Life"
         var player4Life = 40
         player4LifeTextView.text = "$player4Life"
+
+        fun checkForWinner() {
+            // Check for 3 losers, if so, there is a winner
+            var numPlayerRip = 0
+            if (player1Life == 0) {
+                numPlayerRip++
+            }
+            if (player2Life == 0) {
+                numPlayerRip++
+            }
+            if (player3Life == 0) {
+                numPlayerRip++
+            }
+            if (player4Life == 0) {
+                numPlayerRip++
+            }
+            // If there is a winner, display the winner
+            if (numPlayerRip == 3) {
+                if (player1Life != 0) {
+                    winningPlayer.text = "Player 1 wins!"
+                }
+                if (player2Life != 0) {
+                    winningPlayer.text = "Player 2 wins!"
+                }
+                if (player3Life != 0) {
+                    winningPlayer.text = "Player 3 wins!"
+                }
+                if (player4Life != 0) {
+                    winningPlayer.text = "Player 4 wins!"
+                }
+            }
+            else {
+                // Code is necessary to clear winningPlayer textview
+                // if a player accidentally loses the game.
+                winningPlayer.text = ""
+            }
+        }
 
         resetButton.setOnClickListener {
             player1Life = 40
@@ -71,6 +109,7 @@ class MainActivity : AppCompatActivity() {
             if (player1Life <= 0) {
                 player1Life = 0
                 player1LifeTextView.text = "R.I.P"
+                checkForWinner()
             }
             else {
                 player1LifeTextView.text = "$player1Life"
@@ -81,6 +120,7 @@ class MainActivity : AppCompatActivity() {
             if (player2Life <= 0) {
                 player2Life = 0
                 player2LifeTextView.text = "R.I.P"
+                checkForWinner()
             }
             else {
                 player2LifeTextView.text = "$player2Life"
@@ -91,6 +131,7 @@ class MainActivity : AppCompatActivity() {
             if (player3Life <= 0) {
                 player3Life = 0
                 player3LifeTextView.text = "R.I.P"
+                checkForWinner()
             }
             else {
                 player3LifeTextView.text = "$player3Life"
@@ -101,6 +142,7 @@ class MainActivity : AppCompatActivity() {
             if (player4Life <= 0) {
                 player4Life = 0
                 player4LifeTextView.text = "R.I.P"
+                checkForWinner()
             }
             else {
                 player4LifeTextView.text = "$player4Life"
@@ -111,18 +153,26 @@ class MainActivity : AppCompatActivity() {
         player1Plus.setOnClickListener {
             player1Life++
             player1LifeTextView.text = "$player1Life"
+            // Call check for winner in case we need to clear the winning player textview
+            checkForWinner()
         }
         player2Plus.setOnClickListener {
             player2Life++
             player2LifeTextView.text = "$player2Life"
+            // Call check for winner in case we need to clear the winning player textview
+            checkForWinner()
         }
         player3Plus.setOnClickListener {
             player3Life++
             player3LifeTextView.text = "$player3Life"
+            // Call check for winner in case we need to clear the winning player textview
+            checkForWinner()
         }
         player4Plus.setOnClickListener {
             player4Life++
             player4LifeTextView.text = "$player4Life"
+            // Call check for winner in case we need to clear the winning player textview
+            checkForWinner()
         }
     }
 }
