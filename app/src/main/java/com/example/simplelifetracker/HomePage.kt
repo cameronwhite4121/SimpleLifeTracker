@@ -19,12 +19,19 @@ class HomePage : AppCompatActivity() {
             insets
         }
 
-        // Find the button by its ID
-        val fourPlayerNavBtn: AppCompatButton = findViewById(R.id.FourPlayerNavBtn)
+        val fourPlayerNavBtn: AppCompatButton = findViewById(R.id.fourPlayerNavBtn)
 
         // Navigates to the 4-player game activity
         fourPlayerNavBtn.setOnClickListener {
             val intent = Intent(this, FourPlayerGame::class.java)
+            startActivity(intent)
+        }
+
+        val threePlayerNavBtn: AppCompatButton = findViewById(R.id.threePlayerNavBtn)
+
+        // Navigates to the 3-player game activity
+        threePlayerNavBtn.setOnClickListener {
+            val intent = Intent(this, ThreePlayerGame::class.java)
             startActivity(intent)
         }
     }

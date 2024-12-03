@@ -23,7 +23,7 @@
         app:layout_constraintVertical_bias="0.189" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/FourPlayerNavBtn"
+        android:id="@+id/fourPlayerNavBtn"
         android:layout_width="129dp"
         android:layout_height="46dp"
         android:background="@drawable/gray_gradient"
@@ -35,5 +35,31 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.499" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/threePlayerNavBtn"
+        android:layout_width="129dp"
+        android:layout_height="46dp"
+        android:background="@drawable/gray_gradient"
+        android:text="3-Player Game"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.598" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/twoPlayerNavBtn"
+        android:layout_width="129dp"
+        android:layout_height="46dp"
+        android:background="@drawable/gray_gradient"
+        android:text="2-Player Game"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.702" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

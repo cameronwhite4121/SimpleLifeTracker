@@ -1,6 +1,8 @@
 package com.example.simplelifetracker
 
+import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import android.widget.Button
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
@@ -25,7 +27,9 @@ class ThreePlayerGame : AppCompatActivity() {
         // Initialize buttons/textviews
         val winningPlayer: TextView = findViewById(R.id.winningPlayer)
         val resetButton: Button = findViewById(R.id.resetButton)
-        val settingsButton: Button = findViewById(R.id.button_settings);
+        val settingsButton: Button = findViewById(R.id.settingsButton)
+        val closeOverlayButton: Button = findViewById(R.id.closeOverlayButton)
+        val homeButton: Button = findViewById(R.id.homeButton)
 
         // Subtract life buttons
         val player1Minus: Button = findViewById(R.id.player1minus)
@@ -42,6 +46,9 @@ class ThreePlayerGame : AppCompatActivity() {
         val player2LifeTextView: TextView = findViewById(R.id.player2life)
         val player3LifeTextView: TextView = findViewById(R.id.player3life)
 
+        // Initialize hidden overlay
+        val overlayContainer: View = findViewById(R.id.overlayContainer)
+
         // Set life totals
         var player1Life = 40
         player1LifeTextView.text = "$player1Life"
@@ -50,12 +57,7 @@ class ThreePlayerGame : AppCompatActivity() {
         var player3Life = 40
         player3LifeTextView.text = "$player3Life"
 
-        settingsButton.setOnClickListener {
-
-        }
-
         fun checkForWinner() {
-            // Check for 3 losers, if so, there is a winner
             var numPlayerRip = 0
             if (player1Life == 0) {
                 numPlayerRip++
@@ -67,7 +69,7 @@ class ThreePlayerGame : AppCompatActivity() {
                 numPlayerRip++
             }
 
-            // If there is a winner, display the winner
+            // If there are 2 losers, display the winner
             if (numPlayerRip == 2) {
                 if (player1Life != 0) {
                     winningPlayer.text = "Player 1 wins!"
@@ -86,7 +88,54 @@ class ThreePlayerGame : AppCompatActivity() {
             }
         }
 
+        fun openOverlay() {
+            overlayContainer.setVisibility(View.VISIBLE)
+
+            // Hide all non-overlay buttons
+            player1Plus.setVisibility(View.GONE)
+            player2Plus.setVisibility(View.GONE)
+            player3Plus.setVisibility(View.GONE)
+
+            player1Minus.setVisibility(View.GONE)
+            player2Minus.setVisibility(View.GONE)
+            player3Minus.setVisibility(View.GONE)
+
+            settingsButton.setVisibility(View.GONE)
+        }
+
+        fun closeOverlay() {
+            overlayContainer.setVisibility(View.GONE)
+
+            // Show all player buttons and others when overlay is hidden
+            player1Plus.setVisibility(View.VISIBLE)
+            player2Plus.setVisibility(View.VISIBLE)
+            player3Plus.setVisibility(View.VISIBLE)
+
+            player1Minus.setVisibility(View.VISIBLE)
+            player2Minus.setVisibility(View.VISIBLE)
+            player3Minus.setVisibility(View.VISIBLE)
+
+            settingsButton.setVisibility(View.VISIBLE)
+        }
+
+        // Navigates to the home activity
+        homeButton.setOnClickListener {
+            val intent = Intent(this, HomePage::class.java)
+            startActivity(intent)
+            finish()
+        }
+
+        settingsButton.setOnClickListener {
+            openOverlay()
+        }
+
+        closeOverlayButton.setOnClickListener {
+            closeOverlay()
+        }
+
         resetButton.setOnClickListener {
+            closeOverlay()
+
             player1Life = 40
             player1LifeTextView.text = "$player1Life"
             player2Life = 40
