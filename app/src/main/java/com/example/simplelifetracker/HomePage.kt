@@ -34,5 +34,13 @@ class HomePage : AppCompatActivity() {
             val intent = Intent(this, ThreePlayerGame::class.java)
             startActivity(intent)
         }
+
+        val twoPlayerNavBtn: AppCompatButton = findViewById(R.id.twoPlayerNavBtn)
+
+        // Navigates to the 3-player game activity
+        twoPlayerNavBtn.setOnClickListener {
+            val intent = Intent(this, TwoPlayerGame::class.java)
+            startActivity(intent)
+        }
     }
 }
