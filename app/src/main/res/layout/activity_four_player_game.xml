@@ -20,25 +20,36 @@
         android:background="#80000000">
 
         <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/homeButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Home"
+            android:textColor="@android:color/black"
+            android:background="@drawable/gray_gradient"
+            android:layout_gravity="center"
+            android:layout_marginBottom="80dp" />
+
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/resetButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Reset"
             android:textColor="@android:color/black"
-            android:background="#757575"
+            android:background="@drawable/gray_gradient"
             android:layout_gravity="center" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/closeOverlayButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
             android:layout_gravity="top|end"
             android:layout_marginTop="15dp"
             android:layout_marginEnd="15dp"
             android:text="X"
-            android:scaleX=".75"
-            android:scaleY=".75"
-            android:textColor="@android:color/black"/>
+            android:scaleX="1.5"
+            android:scaleY="1.5"
+            android:background="@android:color/transparent"
+            android:textColor="@color/gray"/>
 
     </FrameLayout>
 

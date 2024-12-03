@@ -1,5 +1,6 @@
 package com.example.simplelifetracker
 
+import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.view.View
@@ -30,6 +31,7 @@ class FourPlayerGame : AppCompatActivity() {
         val resetButton: Button = findViewById(R.id.resetButton)
         val settingsButton: Button = findViewById(R.id.settingsButton)
         val closeOverlayButton: Button = findViewById(R.id.closeOverlayButton)
+        val homeButton: Button = findViewById(R.id.homeButton)
 
         // Subtract life buttons
         val player1Minus: Button = findViewById(R.id.player1minus)
@@ -131,6 +133,13 @@ class FourPlayerGame : AppCompatActivity() {
             player4Minus.setVisibility(View.VISIBLE)
 
             settingsButton.setVisibility(View.VISIBLE)
+        }
+
+        // Navigates to the home activity
+        homeButton.setOnClickListener {
+            val intent = Intent(this, HomePage::class.java)
+            startActivity(intent)
+            finish()
         }
 
         settingsButton.setOnClickListener {
