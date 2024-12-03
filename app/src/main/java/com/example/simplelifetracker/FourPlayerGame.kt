@@ -1,5 +1,6 @@
 package com.example.simplelifetracker
 
+import android.graphics.Color
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
@@ -101,35 +102,35 @@ class FourPlayerGame : AppCompatActivity() {
         fun openOverlay() {
             overlayContainer.setVisibility(View.VISIBLE)
 
-            // Disable all non-overlay buttons
-            player1Plus.isEnabled = false
-            player2Plus.isEnabled = false
-            player3Plus.isEnabled = false
-            player4Plus.isEnabled = false
+            // Hide all non-overlay buttons
+            player1Plus.setVisibility(View.GONE)
+            player2Plus.setVisibility(View.GONE)
+            player3Plus.setVisibility(View.GONE)
+            player4Plus.setVisibility(View.GONE)
 
-            player1Minus.isEnabled = false
-            player2Minus.isEnabled = false
-            player3Minus.isEnabled = false
-            player4Minus.isEnabled = false
+            player1Minus.setVisibility(View.GONE)
+            player2Minus.setVisibility(View.GONE)
+            player3Minus.setVisibility(View.GONE)
+            player4Minus.setVisibility(View.GONE)
 
-            settingsButton.isEnabled = false
+            settingsButton.setVisibility(View.GONE)
         }
 
         fun closeOverlay() {
             overlayContainer.setVisibility(View.GONE)
 
-            // Re-enable all player buttons and others when overlay is hidden
-            player1Plus.isEnabled = true
-            player2Plus.isEnabled = true
-            player3Plus.isEnabled = true
-            player4Plus.isEnabled = true
+            // Show all player buttons and others when overlay is hidden
+            player1Plus.setVisibility(View.VISIBLE)
+            player2Plus.setVisibility(View.VISIBLE)
+            player3Plus.setVisibility(View.VISIBLE)
+            player4Plus.setVisibility(View.VISIBLE)
 
-            player1Minus.isEnabled = true
-            player2Minus.isEnabled = true
-            player3Minus.isEnabled = true
-            player4Minus.isEnabled = true
+            player1Minus.setVisibility(View.VISIBLE)
+            player2Minus.setVisibility(View.VISIBLE)
+            player3Minus.setVisibility(View.VISIBLE)
+            player4Minus.setVisibility(View.VISIBLE)
 
-            settingsButton.isEnabled = true
+            settingsButton.setVisibility(View.VISIBLE)
         }
 
         settingsButton.setOnClickListener {
