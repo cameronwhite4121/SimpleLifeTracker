@@ -130,6 +130,19 @@ class TwoPlayerGame : AppCompatActivity() {
                 player1LifeTextView.text = "$player1Life"
             }
         }
+        player1Minus.setOnLongClickListener {
+            player1Life -= 10
+            if (player1Life <= 0) {
+                player1Life = 0
+                player1LifeTextView.text = "R.I.P"
+                checkForWinner()
+            }
+            else {
+                player1LifeTextView.text = "$player1Life"
+            }
+            true
+        }
+
         player2Minus.setOnClickListener {
             player2Life--
             if (player2Life <= 0) {
@@ -141,6 +154,18 @@ class TwoPlayerGame : AppCompatActivity() {
                 player2LifeTextView.text = "$player2Life"
             }
         }
+        player2Minus.setOnLongClickListener {
+            player2Life -= 10
+            if (player2Life <= 0) {
+                player2Life = 0
+                player2LifeTextView.text = "R.I.P"
+                checkForWinner()
+            }
+            else {
+                player2LifeTextView.text = "$player2Life"
+            }
+            true
+        }
 
         // Add life button listeners
         player1Plus.setOnClickListener {
@@ -149,11 +174,26 @@ class TwoPlayerGame : AppCompatActivity() {
             // Call check for winner in case we need to clear the winning player textview
             checkForWinner()
         }
+        player1Plus.setOnLongClickListener {
+            player1Life += 10
+            player1LifeTextView.text = "$player1Life"
+            // Call check for winner in case we need to clear the winning player textview
+            checkForWinner()
+            true
+        }
+
         player2Plus.setOnClickListener {
             player2Life++
             player2LifeTextView.text = "$player2Life"
             // Call check for winner in case we need to clear the winning player textview
             checkForWinner()
+        }
+        player2Plus.setOnLongClickListener {
+            player2Life += 10
+            player2LifeTextView.text = "$player2Life"
+            // Call check for winner in case we need to clear the winning player textview
+            checkForWinner()
+            true
         }
     }
 }
